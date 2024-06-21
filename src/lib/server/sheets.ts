@@ -1,6 +1,7 @@
 import { pb } from "$lib/pocketbase";
+import type { Genre, Sheet } from "$lib/types/global.interface";
 
-export async function getSheets() {
+export async function getSheets(): Promise<Record<Genre, Sheet[]>> {
     const sheets = await pb.collection('sheets').getFullList({
         sort: 'title',
         expand: 'artist',
@@ -14,5 +15,4 @@ export async function getSheets() {
     }, {});
 
     return groupedSheets;
-
 }

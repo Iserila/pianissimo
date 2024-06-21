@@ -1,8 +1,9 @@
 <script lang="ts">
-	import type { PageData } from './$types';
 	import SheetCard from '$lib/components/atoms/sheet-card.svelte';
+	import type { Sheet } from '$lib/types/global.interface';
 
-	export let data: PageData;
+    // NOTE: 'string' should be Genre, but it's not working
+	export let data: Record<string, Sheet[]>;
 </script>
 
 {#if data}

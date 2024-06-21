@@ -2,8 +2,9 @@
 	import { Badge } from '$lib/components/ui/badge';
 	import * as Card from '$lib/components/ui/card';
 	import { pb } from '$lib/pocketbase';
+	import type { Sheet } from '$lib/types/global.interface';
 
-	export let sheet: any;
+	export let sheet: Sheet;
 </script>
 
 <a href={`/sheets/${sheet.id}`}>
@@ -13,7 +14,7 @@
 				? `${pb.baseUrl}/api/files/${sheet.collectionId}/${sheet.id}/${sheet.image}`
 				: 'https://placehold.co/100'}
 			alt={sheet.title}
-			class="h-32 rounded-l-lg object-cover aspect-square"
+			class="aspect-square h-32 rounded-l-lg object-cover"
 		/>
 		<div class="flex w-full flex-col justify-between p-4">
 			<div>
