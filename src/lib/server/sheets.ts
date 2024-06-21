@@ -16,3 +16,11 @@ export async function getSheets(): Promise<Record<Genre, Sheet[]>> {
 
     return groupedSheets;
 }
+
+export async function getSheet(id: string) {
+    const sheet = await pb.collection('sheets').getOne(id, {
+        expand: 'artist,publishedBy'
+    });
+
+    return sheet;
+}
