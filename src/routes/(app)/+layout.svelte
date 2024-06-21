@@ -4,5 +4,7 @@
 
 <div>
 	<Navbar />
-	<slot />
+	<div class="px-5 py-10 lg:px-40">
+		<slot />
+	</div>
 </div>

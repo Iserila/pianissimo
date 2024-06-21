@@ -1,5 +1,7 @@
+import { getSheets } from '$lib/server/sheets';
 import type { PageServerLoad } from './$types';
 
 export const load = (async () => {
-    return {};
+    const sheets = await getSheets();
+    return sheets;
 }) satisfies PageServerLoad;

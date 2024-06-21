@@ -7,8 +7,6 @@
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
 
-	console.log($currentUser);
-
 	const NavItems = [
 		{
 			title: 'Sheets',
@@ -56,7 +54,7 @@
 							alt={`@${$currentUser?.username}`}
 						/>
 						<Avatar.Fallback>
-							{$currentUser?.name[0]}
+							{$currentUser?.name[0] || '?'}
 						</Avatar.Fallback>
 					</Avatar.Root>
 				</Button>
