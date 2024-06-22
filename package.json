@@ -1,6 +1,7 @@
 {
 	"name": "pianissimo",
 	"version": "0.0.1",
+	"description": "A private, invite-only sheet music platform.",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
