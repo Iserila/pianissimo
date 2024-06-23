@@ -82,12 +82,12 @@
 			<Table.Row>
 				<Table.Cell>Last Updated</Table.Cell>
 				<Table.Cell>
-                    {Intl.DateTimeFormat('en-US', {
+					{Intl.DateTimeFormat('en-US', {
 						day: 'numeric',
 						month: 'long',
 						year: 'numeric'
 					}).format(new Date(data.updated))}
-                </Table.Cell>
+				</Table.Cell>
 			</Table.Row>
 			<!-- NOTE: Published By refuses to get into expand... -->
 			<!-- <Table.Row>
@@ -118,7 +118,7 @@
 							>Download Annotated Sheet</Button
 						>
 					{:else}
-						<span>Not Available</span>
+						<span class="italic">Not Available</span>
 					{/if}
 				</Table.Cell>
 			</Table.Row>
