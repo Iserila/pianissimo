@@ -67,14 +67,14 @@
 					</div>
 				</DropdownMenu.Label>
 				<DropdownMenu.Separator />
-				<DropdownMenu.Group>
-					<!-- <DropdownMenu.Item href={`/users/${$currentUser?.username}`}>
+				<!-- <DropdownMenu.Group>
+					<DropdownMenu.Item href={`/users/${$currentUser?.username}`}>
 						Profile
-					</DropdownMenu.Item> -->
+					</DropdownMenu.Item>
 					<DropdownMenu.Item href="/settings">
 						Settings
 					</DropdownMenu.Item>
-				</DropdownMenu.Group>
+				</DropdownMenu.Group> -->
 				<!-- <DropdownMenu.Separator />
 				{#if $currentUser?.role === 'admin'}
 					<DropdownMenu.Group>
