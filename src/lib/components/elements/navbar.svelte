@@ -30,7 +30,7 @@
 		</a>
 		<nav class="flex items-center space-x-4 lg:space-x-6">
 			{#each NavItems as item}
-				{@const isActive = $page.url.pathname === item.href}
+				{@const isActive = $page.url.pathname.startsWith(item.href)}
 				<a
 					href={item.href}
 					class={cn(
