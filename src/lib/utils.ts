@@ -2,6 +2,18 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { cubicOut } from "svelte/easing";
 import type { TransitionConfig } from "svelte/transition";
+import { error } from "@sveltejs/kit";
+import { ClientResponseError } from "pocketbase";
+
+export function handlePocketbaseError(e: any) {
+	if (e instanceof ClientResponseError) {
+		throw error(e.status, e.message);
+	} else {
+		console.log(e);
+		throw error(500, "Internal server error");
+	}
+
+}
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
