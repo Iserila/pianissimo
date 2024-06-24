@@ -3,7 +3,6 @@
 	import type { Artist } from '$lib/types/global.interface';
 
 	export let data: { artists: Artist[] };
-	console.log(data);
 </script>
 
 {#if data}
