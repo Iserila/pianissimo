@@ -6,11 +6,16 @@ import { error } from "@sveltejs/kit";
 import { ClientResponseError } from "pocketbase";
 
 export function handlePocketbaseError(e: any) {
-	if (e instanceof ClientResponseError) {
-		throw error(e.status, e.message);
-	} else {
-		console.log(e);
-		throw error(500, "Internal server error");
+	try {
+		if (e instanceof ClientResponseError) {
+			throw error(e.status, e.message);
+		} else {
+			console.log({ message: e.message, stack: e.stack });
+			throw error(500, "A server error occurred");
+		}
+	} catch (e: any) {
+		console.log("Error handling error: ", { message: e.message, stack: e.stack });
+		throw error(500, "An internal error occurred");
 	}
 
 }
