@@ -54,7 +54,7 @@
 							alt={`@${$currentUser?.username}`}
 						/>
 						<Avatar.Fallback>
-							{$currentUser?.name?.charAt(0) || '?'}
+							{$currentUser?.name?.charAt(0)}
 						</Avatar.Fallback>
 					</Avatar.Root>
 				</Button>

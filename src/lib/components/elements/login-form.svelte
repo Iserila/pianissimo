@@ -1,19 +1,25 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 	import { Button } from '$lib/components/ui/button';
 	import * as Card from '$lib/components/ui/card';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
 	import { currentUser, pb } from '$lib/pocketbase';
+	import { ClientResponseError } from 'pocketbase';
 
 	let user: string;
 	let password: string;
+	let errorMessage: string | null = null;
 
 	async function login() {
-		let res = await pb.collection('users').authWithPassword(user, password);
-		if (res) {
-			console.log('PB - Logged in');
-			goto('/sheets');
+		try {
+			let res = await pb.collection('users').authWithPassword(user, password);
+			if (res) goto('/sheets');
+		} catch (e) {
+			if (e instanceof ClientResponseError) {
+				errorMessage = e.response.message;
+			}
 		}
 	}
 
@@ -46,6 +52,9 @@
 			</div>
 		{:else}
 			<div class="flex w-full flex-col">
+				{#if errorMessage}
+					<p class="text-red-500 text-sm text-center mb-4">{errorMessage}</p>
+				{/if}
 				<Button class="w-full" on:click={login}>Sign in</Button>
 				<Button variant="link" href="/activate">Activate your account</Button>
 			</div>
