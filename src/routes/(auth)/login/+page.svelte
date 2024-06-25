@@ -25,7 +25,7 @@
 	<meta property="twitter:title" content={`Login • ${meta.title}`} />
 </svelte:head>
 
-<div class="flex h-screen items-center justify-center">
+<div class="flex h-screen items-center justify-center px-5">
 	<form action="?/login" method="POST">
 		<Card.Root class="w-full max-w-sm">
 			<Card.Header>

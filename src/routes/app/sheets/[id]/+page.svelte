@@ -32,14 +32,14 @@
 	/>
 </svelte:head>
 
-<div class="grid grid-cols-2 gap-20 py-10">
-	<div class="flex items-center gap-8">
+<div class="grid xl:grid-cols-2 gap-10 xl:gap-20 py-4 xl:py-10">
+	<div class="flex flex-col xl:flex-row items-center gap-8">
 		<img
 			src={data.image
 				? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
 				: '/images/no-file.png'}
 			alt={data.title}
-			class="w-56 rounded-lg"
+			class="w-40 xl:w-56 rounded-lg"
 		/>
 		<div>
 			<h1 class="text-6xl font-bold">{data.title}</h1>
@@ -100,6 +100,7 @@
 					{#if data.cleanSheet}
 						<Button
 							variant="secondary"
+							size="sm"
 							href={`${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.cleanSheet}?download=true`}
 							>Download Clean Sheet</Button
 						>
@@ -114,6 +115,7 @@
 					{#if data.annotatedSheet}
 						<Button
 							variant="secondary"
+							size="sm"
 							href={`${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.annotatedSheet}?download=true`}
 							>Download Annotated Sheet</Button
 						>

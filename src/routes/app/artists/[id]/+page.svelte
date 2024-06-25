@@ -35,16 +35,16 @@
 	/>
 </svelte:head>
 
-<div class="grid grid-cols-2 gap-20">
-	<div class="flex items-center gap-8">
+<div class="grid gap-10 xl:gap-20 py-4 xl:py-10 xl:grid-cols-2">
+	<div class="flex flex-col items-center gap-8 xl:flex-row">
 		<img
 			src={data.image
 				? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
 				: '/images/no-file.png'}
 			alt={data.stageName}
-			class="w-56 rounded-lg"
+			class="w-40 rounded-lg xl:w-56"
 		/>
-		<div>
+		<div class="text-center xl:text-start">
 			<h1 class="text-5xl font-bold">{data.stageName}</h1>
 			<p class="mt-2 text-lg">{data.realName} {data.localName && ` • ${data.localName}`}</p>
 		</div>

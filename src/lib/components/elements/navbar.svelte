@@ -23,8 +23,8 @@
 	export let user;
 </script>
 
-<div class="flex h-16 items-center justify-between border-b px-20">
-	<div class="flex items-center gap-10">
+<div class="flex h-16 items-center justify-between border-b px-5 md:px-20">
+	<div class="flex items-center gap-4 md:gap-10">
 		<a href="/app/sheets">
 			<img src="/images/logo.svg" alt="Pianissimo Logo" class="h-10" />
 		</a>
@@ -65,7 +65,7 @@
 						<p class="text-sm font-medium leading-none">{user?.name}</p>
 						<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
 					</div>
-					<div class="hidden h-7 items-center gap-2 rounded-md border p-1 shadow md:flex">
+					<div class="h-7 items-center gap-2 rounded-md border p-1 shadow">
 						<fieldset
 							role="group"
 							data-orientation="horizontal"

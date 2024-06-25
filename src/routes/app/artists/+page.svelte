@@ -7,7 +7,7 @@
 
 {#if data}
 	<h1 class="text-4xl font-bold">Artists</h1>
-	<div class="mt-4 grid grid-cols-2 gap-10 xl:grid-cols-3">
+	<div class="mt-4 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
 		{#each data.artists as artist}
 			<ArtistCard {artist} />
 		{/each}
