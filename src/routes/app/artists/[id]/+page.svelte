@@ -35,7 +35,7 @@
 	/>
 </svelte:head>
 
-<div class="grid gap-10 xl:gap-20 py-4 xl:py-10 xl:grid-cols-2">
+<div class="grid gap-10 py-4 xl:grid-cols-2 xl:gap-20 xl:py-10">
 	<div class="flex flex-col items-center gap-8 xl:flex-row">
 		<img
 			src={data.image

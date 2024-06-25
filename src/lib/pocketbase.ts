@@ -1,4 +1,4 @@
-import { PUBLIC_PB_URL } from "$env/static/public";
+import { PUBLIC_PB_URL } from '$env/static/public';
 
 import PocketBase from 'pocketbase';
 

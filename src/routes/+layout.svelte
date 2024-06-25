@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
 	import { ModeWatcher } from 'mode-watcher';
-    import meta from '$lib/meta';
+	import meta from '$lib/meta';
 </script>
 
 <svelte:head>

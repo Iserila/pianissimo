@@ -7,7 +7,6 @@ declare global {
 		interface Locals {
 			pb: PocketBase;
 			user?: Record<string, T>;
-
 		}
 		// interface PageData {}
 		// interface PageState {}
@@ -15,4 +14,4 @@ declare global {
 	}
 }
 
-export { };
+export {};

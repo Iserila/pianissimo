@@ -20,7 +20,12 @@
 		</h6>
 	</div>
 	<p class="text-muted-foreground">A private, invite-only sheet music platform.</p>
-	<Button variant="outline" class="mt-4" href="https://github.com/Fyxren/pianissimo" target="_blank">
+	<Button
+		variant="outline"
+		class="mt-4"
+		href="https://github.com/Fyxren/pianissimo"
+		target="_blank"
+	>
 		<Github class="mr-2 h-4 w-4" />
 		Open Source
 	</Button>

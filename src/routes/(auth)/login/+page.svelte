@@ -57,7 +57,7 @@
 							</p>
 						{/if}
 						<Button class="w-full" type="submit">Sign in</Button>
-						<p class="text-center text-sm text-muted-foreground mt-2">
+						<p class="mt-2 text-center text-sm text-muted-foreground">
 							Account activation/creation is not available yet.
 						</p>
 						<!-- <Button variant="link" href="/activate">Activate your account</Button> -->

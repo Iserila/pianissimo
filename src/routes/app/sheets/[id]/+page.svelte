@@ -32,14 +32,14 @@
 	/>
 </svelte:head>
 
-<div class="grid xl:grid-cols-2 gap-10 xl:gap-20 py-4 xl:py-10">
-	<div class="flex flex-col xl:flex-row items-center gap-8">
+<div class="grid gap-10 py-4 xl:grid-cols-2 xl:gap-20 xl:py-10">
+	<div class="flex flex-col items-center gap-8 xl:flex-row">
 		<img
 			src={data.image
 				? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
 				: '/images/no-file.png'}
 			alt={data.title}
-			class="w-40 xl:w-56 rounded-lg"
+			class="w-40 rounded-lg xl:w-56"
 		/>
 		<div>
 			<h1 class="text-6xl font-bold">{data.title}</h1>

@@ -1,9 +1,9 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { cubicOut } from "svelte/easing";
-import type { TransitionConfig } from "svelte/transition";
-import { error } from "@sveltejs/kit";
-import { ClientResponseError } from "pocketbase";
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+import { cubicOut } from 'svelte/easing';
+import type { TransitionConfig } from 'svelte/transition';
+import { error } from '@sveltejs/kit';
+import { ClientResponseError } from 'pocketbase';
 
 export function handlePocketbaseError(e: any) {
 	try {
@@ -11,13 +11,12 @@ export function handlePocketbaseError(e: any) {
 			throw error(e.status, e.message);
 		} else {
 			console.log({ message: e.message, stack: e.stack });
-			throw error(500, "A server error occurred");
+			throw error(500, 'A server error occurred');
 		}
 	} catch (e: any) {
-		console.log("Error handling error: ", { message: e.message, stack: e.stack });
-		throw error(500, "An internal error occurred");
+		console.log('Error handling error: ', { message: e.message, stack: e.stack });
+		throw error(500, 'An internal error occurred');
 	}
-
 }
 
 export function serializeNonPOJOs(obj: any) {
@@ -40,13 +39,9 @@ export const flyAndScale = (
 	params: FlyAndScaleParams = { y: -8, x: 0, start: 0.95, duration: 150 }
 ): TransitionConfig => {
 	const style = getComputedStyle(node);
-	const transform = style.transform === "none" ? "" : style.transform;
+	const transform = style.transform === 'none' ? '' : style.transform;
 
-	const scaleConversion = (
-		valueA: number,
-		scaleA: [number, number],
-		scaleB: [number, number]
-	) => {
+	const scaleConversion = (valueA: number, scaleA: [number, number], scaleB: [number, number]) => {
 		const [minA, maxA] = scaleA;
 		const [minB, maxB] = scaleB;
 
@@ -56,13 +51,11 @@ export const flyAndScale = (
 		return valueB;
 	};
 
-	const styleToString = (
-		style: Record<string, number | string | undefined>
-	): string => {
+	const styleToString = (style: Record<string, number | string | undefined>): string => {
 		return Object.keys(style).reduce((str, key) => {
 			if (style[key] === undefined) return str;
 			return str + `${key}:${style[key]};`;
-		}, "");
+		}, '');
 	};
 
 	return {

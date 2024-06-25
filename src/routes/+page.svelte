@@ -23,6 +23,6 @@
 			</form>
 		</div>
 	{:else}
-		<Button class="mt-4 xl:mt-8 w-40" href="/login">Continue To Login</Button>
+		<Button class="mt-4 w-40 xl:mt-8" href="/login">Continue To Login</Button>
 	{/if}
 </div>
