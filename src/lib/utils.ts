@@ -20,6 +20,10 @@ export function handlePocketbaseError(e: any) {
 
 }
 
+export function serializeNonPOJOs(obj: any) {
+	return structuredClone(obj);
+}
+
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }

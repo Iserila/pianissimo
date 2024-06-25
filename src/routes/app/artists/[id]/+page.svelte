@@ -6,6 +6,7 @@
 	import type { Artist } from '$lib/types/global.interface';
 
 	export let data: Artist;
+	console.log('ARTIST', data);
 </script>
 
 <svelte:head>

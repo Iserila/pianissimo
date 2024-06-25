@@ -45,7 +45,7 @@
 			<h1 class="text-6xl font-bold">{data.title}</h1>
 			{#if data.expand?.artist?.stageName}
 				<Button
-					href={`/artists/${data.expand?.artist?.id}`}
+					href={`/app/artists/${data.expand?.artist?.id}`}
 					class="px-0 text-lg font-normal text-white"
 					variant="link">{data.expand?.artist?.stageName}</Button
 				>

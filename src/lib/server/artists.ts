@@ -1,15 +1,14 @@
-import { pb } from "$lib/pocketbase";
 import type { Artist } from "$lib/types/global.interface";
 
-export async function getArtists(): Promise<Artist[]> {
-    const artists = await pb.collection('artists').getFullList({
+export async function getArtists(locals: any): Promise<Artist[]> {
+    const artists = await locals.pb.collection('artists').getFullList({
         sort: 'stageName',
     }) as Artist[];
 
     return artists;
 }
 
-export async function getArtist(id: string): Promise<Artist> {
-    const artist = await pb.collection('artists').getOne(id) as Artist;
+export async function getArtist(locals: any, id: string): Promise<Artist> {
+    const artist = await locals.pb.collection('artists').getOne(id) as Artist;
     return artist;
 }

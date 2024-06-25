@@ -2,9 +2,9 @@ import { getSheet } from '$lib/server/sheets';
 import type { PageServerLoad } from './$types';
 import { handlePocketbaseError } from '$lib/utils';
 
-export const load = (async ({ params }) => {
+export const load = (async ({ locals, params }) => {
     try {
-        const sheet = await getSheet(params.id);
+        const sheet = await getSheet(locals, params.id);
         return sheet;
     } catch (e) {
         handlePocketbaseError(e);

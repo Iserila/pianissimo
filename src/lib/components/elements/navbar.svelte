@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { currentUser, pb } from '$lib/pocketbase';
+	import { pb } from '$lib/pocketbase';
 	import { page } from '$app/stores';
 	import { cn } from '$lib/utils';
 
@@ -10,22 +10,20 @@
 	const NavItems = [
 		{
 			title: 'Sheets',
-			href: '/sheets'
+			href: '/app/sheets'
 		},
 		{
 			title: 'Artists',
-			href: '/artists'
+			href: '/app/artists'
 		}
 	];
 
-	function logOut() {
-		pb.authStore.clear();
-	}
+	export let user;
 </script>
 
 <div class="flex h-16 items-center justify-between border-b px-20">
 	<div class="flex items-center gap-10">
-		<a href="/sheets">
+		<a href="/app/sheets">
 			<img src="/images/logo.svg" alt="Pianissimo Logo" class="h-10" />
 		</a>
 		<nav class="flex items-center space-x-4 lg:space-x-6">
@@ -50,11 +48,11 @@
 					<Avatar.Root class="h-10 w-10">
 						<Avatar.Image
 							src={pb.baseUrl +
-								`/api/files/${$currentUser?.collectionName}/${$currentUser?.id}/${$currentUser?.avatar}?thumb=128x128`}
-							alt={`@${$currentUser?.username}`}
+								`/api/files/${user?.collectionName}/${user?.id}/${user?.avatar}?thumb=128x128`}
+							alt={`@${user?.username}`}
 						/>
 						<Avatar.Fallback>
-							{$currentUser?.name?.charAt(0)}
+							{user?.name?.charAt(0)}
 						</Avatar.Fallback>
 					</Avatar.Root>
 				</Button>
@@ -62,13 +60,13 @@
 			<DropdownMenu.Content class="w-56" align="end">
 				<DropdownMenu.Label class="font-normal">
 					<div class="flex flex-col space-y-1">
-						<p class="text-sm font-medium leading-none">{$currentUser?.name}</p>
-						<p class="text-xs leading-none text-muted-foreground">{$currentUser?.email}</p>
+						<p class="text-sm font-medium leading-none">{user?.name}</p>
+						<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
 					</div>
 				</DropdownMenu.Label>
 				<DropdownMenu.Separator />
 				<!-- <DropdownMenu.Group>
-					<DropdownMenu.Item href={`/users/${$currentUser?.username}`}>
+					<DropdownMenu.Item href={`/users/${user?.username}`}>
 						Profile
 					</DropdownMenu.Item>
 					<DropdownMenu.Item href="/settings">
@@ -76,7 +74,7 @@
 					</DropdownMenu.Item>
 				</DropdownMenu.Group> -->
 				<!-- <DropdownMenu.Separator />
-				{#if $currentUser?.role === 'admin'}
+				{#if user?.role === 'admin'}
 					<DropdownMenu.Group>
 						<DropdownMenu.Label>Admin</DropdownMenu.Label>
 						<DropdownMenu.Item href="/admin/users">Users</DropdownMenu.Item>
@@ -84,12 +82,13 @@
 					</DropdownMenu.Group>
 					<DropdownMenu.Separator />
 				{/if} -->
-				<DropdownMenu.Item
-					class="hover:!bg-destructive hover:!text-destructive-foreground"
-					on:click={logOut}
-				>
-					Log Out
-				</DropdownMenu.Item>
+				<form method="POST" action="/logout">
+					<button type="submit" class="h-full w-full text-start">
+						<DropdownMenu.Item class="hover:!bg-destructive hover:!text-destructive-foreground hover:cursor-pointer">
+							Log Out
+						</DropdownMenu.Item>
+					</button>
+				</form>
 			</DropdownMenu.Content>
 		</DropdownMenu.Root>
 	</div>

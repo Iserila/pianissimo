@@ -7,7 +7,7 @@
 	export let sheet: Sheet;
 </script>
 
-<a href={`/sheets/${sheet.id}`}>
+<a href={`/app/sheets/${sheet.id}`}>
 	<div class="flex h-32 rounded-lg border hover:bg-muted/25">
 		<img
 			src={sheet.image

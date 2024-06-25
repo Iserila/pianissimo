@@ -7,7 +7,7 @@
 	export let artist: Artist;
 </script>
 
-<a href={`/artists/${artist.id}`}>
+<a href={`/app/artists/${artist.id}`}>
 	<div class="flex h-32 rounded-lg border hover:bg-muted/25">
 		<img
 			src={artist.image
