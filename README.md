@@ -1,38 +1,22 @@
-# create-svelte
+# Pianissimo
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Pianissimo is a private, invite-only sheet music platform to store, manage, and access your sheet music collection. 
 
-## Creating a project
+It's built using [SvelteKit](https://kit.svelte.dev) & [PocketBase](https://pocketbase.io) as the backend.
 
-If you're seeing this, you've probably already done this step. Congrats!
+> [!NOTE]
+> Pianissimo is under active development. This README will be updated as the project progresses.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
+_Pianissimo_ is a work in progress. A few of the planned features include:
+- Manage your sheets and their artists
+- User authentication
+- User roles
+- User management
+- Search functionality
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Setup
+_Pianissimo is not quite ready for production use yet. I will update this section once it is more production ready._
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## License
+Distrubuted under the GNU General Public License v3.0. See `LICENSE` for more information.
