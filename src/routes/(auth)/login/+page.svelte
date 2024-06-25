@@ -57,7 +57,10 @@
 							</p>
 						{/if}
 						<Button class="w-full" type="submit">Sign in</Button>
-						<Button variant="link" href="/activate">Activate your account</Button>
+						<p class="text-center text-sm text-muted-foreground mt-2">
+							Account activation/creation is not available yet.
+						</p>
+						<!-- <Button variant="link" href="/activate">Activate your account</Button> -->
 					</div>
 				{/if}
 			</Card.Footer>
