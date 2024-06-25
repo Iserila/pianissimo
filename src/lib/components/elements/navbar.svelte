@@ -75,7 +75,7 @@
 								on:click={() => setMode('light')}
 								data-orientation="horizontal"
 								data-state={$userPrefersMode === 'light' ? 'on' : 'off'}
-								aria-checked={$userPrefersMode === 'light' ? 'on' : 'off'}
+								aria-checked={$userPrefersMode === 'light' ? true : false}
 								role="radio"
 								tabindex="0"
 								data-melt-toggle-group-item=""
@@ -88,7 +88,7 @@
 								on:click={() => setMode('dark')}
 								data-orientation="horizontal"
 								data-state={$userPrefersMode === 'dark' ? 'on' : 'off'}
-								aria-checked={$userPrefersMode === 'dark' ? 'on' : 'off'}
+								aria-checked={$userPrefersMode === 'dark' ? true : false}
 								role="radio"
 								tabindex="-1"
 								data-melt-toggle-group-item=""
@@ -101,7 +101,7 @@
 								on:click={() => setMode('system')}
 								data-orientation="horizontal"
 								data-state={$userPrefersMode === 'system' ? 'on' : 'off'}
-								aria-checked={$userPrefersMode === 'system' ? 'on' : 'off'}
+								aria-checked={$userPrefersMode === 'system' ? true : false}
 								role="radio"
 								tabindex="-1"
 								data-melt-toggle-group-item=""
