@@ -12,7 +12,7 @@
 		<img
 			src={artist.image
 				? `${pb.baseUrl}/api/files/${artist.collectionId}/${artist.id}/${artist.image}`
-				: 'https://placehold.co/100'}
+				: '/images/no-file.png'}
 			alt={artist.stageName}
 			class="aspect-square h-32 rounded-l-lg object-cover"
 		/>

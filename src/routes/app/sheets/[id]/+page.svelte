@@ -19,7 +19,7 @@
 	<meta property="og:title" content={`Sheet >> ${data.title} • ${meta.title}`} />
 	{data.image
 		? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-		: 'https://placehold.co/100'}
+		: '/images/no-file.png'}
 
 	<!-- Twitter -->
 	<meta property="twitter:url" content={meta.url + '/sheets/' + data.id} />
@@ -28,7 +28,7 @@
 		property="twitter:image"
 		content={data.image
 			? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-			: 'https://placehold.co/100'}
+			: '/images/no-file.png'}
 	/>
 </svelte:head>
 
@@ -37,7 +37,7 @@
 		<img
 			src={data.image
 				? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-				: 'https://placehold.co/100'}
+				: '/images/no-file.png'}
 			alt={data.title}
 			class="w-56 rounded-lg"
 		/>

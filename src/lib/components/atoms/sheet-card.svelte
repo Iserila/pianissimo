@@ -12,7 +12,7 @@
 		<img
 			src={sheet.image
 				? `${pb.baseUrl}/api/files/${sheet.collectionId}/${sheet.id}/${sheet.image}`
-				: 'https://placehold.co/100'}
+				: '/images/no-file.png'}
 			alt={sheet.title}
 			class="aspect-square h-32 rounded-l-lg object-cover"
 		/>

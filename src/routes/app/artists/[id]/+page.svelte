@@ -21,7 +21,7 @@
 		property="og:image"
 		content={data.image
 			? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-			: 'https://placehold.co/100'}
+			: '/images/no-file.png'}
 	/>
 
 	<!-- Twitter -->
@@ -31,7 +31,7 @@
 		property="twitter:image"
 		content={data.image
 			? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-			: 'https://placehold.co/100'}
+			: '/images/no-file.png'}
 	/>
 </svelte:head>
 
@@ -40,7 +40,7 @@
 		<img
 			src={data.image
 				? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-				: 'https://placehold.co/100'}
+				: '/images/no-file.png'}
 			alt={data.stageName}
 			class="w-56 rounded-lg"
 		/>
