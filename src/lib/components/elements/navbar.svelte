@@ -66,11 +66,7 @@
 						<p class="text-xs leading-none text-muted-foreground">{user?.email}</p>
 					</div>
 					<div class="h-7 items-center gap-2 rounded-md border p-1 shadow">
-						<fieldset
-							role="group"
-							data-orientation="horizontal"
-							class="flex items-center justify-center gap-1"
-						>
+						<fieldset data-orientation="horizontal" class="flex items-center justify-center gap-1">
 							<button
 								on:click={() => setMode('light')}
 								data-orientation="horizontal"
