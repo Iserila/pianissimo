@@ -14,7 +14,7 @@ export function handlePocketbaseError(e: any) {
 			throw error(500, 'A server error occurred');
 		}
 	} catch (e: any) {
-		console.log('Error handling error: ', { message: e.message, stack: e.stack });
+		console.log('Error handling error: ', { message: e.message, stack: e.stack, raw: e });
 		throw error(500, 'An internal error occurred');
 	}
 }
