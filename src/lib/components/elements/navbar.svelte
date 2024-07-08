@@ -6,7 +6,7 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import { Button } from '$lib/components/ui/button';
-	import { Laptop, Moon, Sun } from 'lucide-svelte';
+	import { ChevronDown, Laptop, Moon, Sun } from 'lucide-svelte';
 	import { setMode, userPrefersMode } from 'mode-watcher';
 
 	const NavItems = [
@@ -43,7 +43,19 @@
 			{/each}
 		</nav>
 	</div>
-	<div>
+	<div class="flex items-center gap-4">
+		<DropdownMenu.Root>
+			<DropdownMenu.Trigger asChild let:builder>
+				<Button variant="ghost" builders={[builder]} class="gap-2">
+					Create
+					<ChevronDown class="" />
+				</Button>
+			</DropdownMenu.Trigger>
+			<DropdownMenu.Content align="end">
+				<DropdownMenu.Item href="/app/sheets/new">Sheet</DropdownMenu.Item>
+				<DropdownMenu.Item href="/app/artists/new">Artist</DropdownMenu.Item>
+			</DropdownMenu.Content>
+		</DropdownMenu.Root>
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild let:builder>
 				<Button variant="ghost" builders={[builder]} class="relative h-10 w-10 rounded-full">
