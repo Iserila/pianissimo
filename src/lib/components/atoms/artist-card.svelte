@@ -11,7 +11,7 @@
 	<div class="flex h-32 rounded-lg border hover:bg-muted/25">
 		<img
 			src={artist.image
-				? `${pb.baseUrl}/api/files/${artist.collectionId}/${artist.id}/${artist.image}`
+				? pb.files.getUrl(artist, artist.image?.toString(), { thumb: '256' })
 				: '/images/no-file.png'}
 			alt={artist.stageName}
 			class="aspect-square h-32 rounded-l-lg object-cover"

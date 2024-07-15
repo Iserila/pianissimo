@@ -10,9 +10,7 @@
 <a href={`/app/sheets/${sheet.id}`}>
 	<div class="flex h-32 rounded-lg border hover:bg-muted/25">
 		<img
-			src={sheet.image
-				? `${pb.baseUrl}/api/files/${sheet.collectionId}/${sheet.id}/${sheet.image}`
-				: '/images/no-file.png'}
+			src={sheet.image ? pb.files.getUrl(sheet, sheet.image?.toString(), { thumb: '256'}) : '/images/no-file.png'}
 			alt={sheet.title}
 			class="aspect-square h-32 rounded-l-lg object-cover"
 		/>

@@ -7,6 +7,9 @@
 	import type { Sheet } from '$lib/types/global.interface';
 
 	export let data: Sheet;
+	const fileUrl = data.image
+		? pb.files.getUrl(data, data.image?.toString(), { thumb: '512' })
+		: '/images/no-file.png';
 </script>
 
 <svelte:head>
@@ -17,30 +20,17 @@
 	<!-- Open Graph -->
 	<meta property="og:url" content={meta.url + '/sheets/' + data.id} />
 	<meta property="og:title" content={`Sheet >> ${data.title} • ${meta.title}`} />
-	{data.image
-		? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-		: '/images/no-file.png'}
+	<meta property="og:image" content={fileUrl} />
 
 	<!-- Twitter -->
 	<meta property="twitter:url" content={meta.url + '/sheets/' + data.id} />
 	<meta property="twitter:title" content={`Sheet >> ${data.title} • ${meta.title}`} />
-	<meta
-		property="twitter:image"
-		content={data.image
-			? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-			: '/images/no-file.png'}
-	/>
+	<meta property="twitter:image" content={fileUrl} />
 </svelte:head>
 
 <div class="grid gap-10 py-4 xl:grid-cols-2 xl:gap-20 xl:py-10">
 	<div class="flex flex-col items-center gap-8 xl:flex-row">
-		<img
-			src={data.image
-				? `${pb.baseUrl}/api/files/${data.collectionId}/${data.id}/${data.image}`
-				: '/images/no-file.png'}
-			alt={data.title}
-			class="w-40 rounded-lg xl:w-56"
-		/>
+		<img src={fileUrl} alt={data.title} class="w-40 rounded-lg xl:w-56" />
 		<div>
 			<h1 class="text-6xl font-bold">{data.title}</h1>
 			{#if data.expand?.artist?.stageName}
