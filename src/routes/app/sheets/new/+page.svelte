@@ -44,7 +44,11 @@
 		<Form.Field {form} name="title">
 			<Form.Control let:attrs>
 				<Form.Label>Title</Form.Label>
-				<Input {...attrs} bind:value={$formData.title} />
+				<Input
+					class="focus:border-2 focus:border-accent-foreground"
+					{...attrs}
+					bind:value={$formData.title}
+				/>
 			</Form.Control>
 			<Form.Description>The title of the song.</Form.Description>
 			<Form.FieldErrors />
@@ -52,7 +56,11 @@
 		<Form.Field {form} name="source">
 			<Form.Control let:attrs>
 				<Form.Label>Source</Form.Label>
-				<Input {...attrs} bind:value={$formData.source} />
+				<Input
+					class="focus:border-2 focus:border-accent-foreground"
+					{...attrs}
+					bind:value={$formData.source}
+				/>
 			</Form.Control>
 			<Form.Description>The source the song. E.g the name of a movie, game, etc.</Form.Description>
 			<Form.FieldErrors />
@@ -65,7 +73,7 @@
 					<Popover.Trigger
 						class={cn(
 							buttonVariants({ variant: 'outline' }),
-							'w-full justify-between',
+							'w-full justify-between focus:border-2 focus:border-accent-foreground',
 							!$formData.genre && 'text-muted-foreground'
 						)}
 						role="combobox"
@@ -109,7 +117,12 @@
 			<Form.Control let:attrs>
 				<Form.Label>Duo</Form.Label>
 				<div>
-					<Switch includeInput {...attrs} bind:checked={$formData.duo} />
+					<Switch
+						class="focus:border-2 focus:border-accent-foreground"
+						includeInput
+						{...attrs}
+						bind:checked={$formData.duo}
+					/>
 				</div>
 			</Form.Control>
 			<Form.Description>Whether the song is a duet or not.</Form.Description>
@@ -119,7 +132,12 @@
 			<Form.Control let:attrs>
 				<Form.Label>Publish</Form.Label>
 				<div>
-					<Switch includeInput {...attrs} bind:checked={$formData.published} />
+					<Switch
+						class="focus:border-2 focus:border-accent-foreground"
+						includeInput
+						{...attrs}
+						bind:checked={$formData.published}
+					/>
 				</div>
 			</Form.Control>
 			<Form.Description>Make the sheet public to everyone.</Form.Description>
@@ -136,6 +154,7 @@
 					name="image"
 					accept="image/png, image/jpeg"
 					on:input={(e) => ($formData.image = e.currentTarget.files?.item(0) ?? null)}
+					class="focus:border-2 focus:border-accent-foreground"
 				/>
 			</Form.Control>
 			<Form.Description>A square image related to the song.</Form.Description>
@@ -149,6 +168,7 @@
 					type="file"
 					accept="application/pdf"
 					on:input={(e) => ($formData.annotatedSheet = e.currentTarget.files?.item(0) ?? null)}
+					class="focus:border-2 focus:border-accent-foreground"
 				/>
 			</Form.Control>
 			<Form.Description>A sheet with annotations.</Form.Description>
@@ -162,6 +182,7 @@
 					type="file"
 					accept="application/pdf"
 					on:input={(e) => ($formData.cleanSheet = e.currentTarget.files?.item(0) ?? null)}
+					class="focus:border-2 focus:border-accent-foreground"
 				/>
 			</Form.Control>
 			<Form.Description>A fresh sheet without annotations.</Form.Description>
@@ -170,12 +191,16 @@
 		<Form.Field {form} name="note">
 			<Form.Control let:attrs>
 				<Form.Label>Note</Form.Label>
-				<Input {...attrs} bind:value={$formData.note} />
+				<Input
+					{...attrs}
+					bind:value={$formData.note}
+					class="focus:border-2 focus:border-accent-foreground"
+				/>
 			</Form.Control>
 			<Form.Description>Any additional notes.</Form.Description>
 			<Form.FieldErrors />
 		</Form.Field>
 	</div>
 
-	<Form.Button>Create</Form.Button>
+	<Form.Button class="focus:border-2 focus:border-accent-foreground">Create</Form.Button>
 </form>
