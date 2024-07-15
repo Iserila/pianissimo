@@ -1,14 +1,14 @@
 export interface Sheet {
-	annotatedSheet: string;
+	annotatedSheet?: File | null | undefined;
 	artist: string;
-	cleanSheet: string;
+	cleanSheet?: File | null | undefined;
 	collectionId: string;
 	collectionName: string;
 	created: string;
 	duo: boolean;
 	genre: Genre;
 	id: string;
-	image: string;
+	image?: File | null | undefined;
 	note: string;
 	published: boolean;
 	publishedBy: string;
@@ -28,7 +28,7 @@ export interface Artist {
 	country: string;
 	created: string;
 	id: string;
-	image: string;
+	image?: File | null | undefined;
 	localName: string;
 	note: string;
 	realName: string;
