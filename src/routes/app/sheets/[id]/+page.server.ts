@@ -7,6 +7,7 @@ export const load = (async ({ locals, params }) => {
 		const sheet = await getSheet(locals, params.id);
 		return sheet;
 	} catch (e) {
+		console.log(e);
 		handlePocketbaseError(e);
 	}
 }) satisfies PageServerLoad;

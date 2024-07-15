@@ -10,12 +10,12 @@ export function handlePocketbaseError(e: any) {
 		if (e instanceof ClientResponseError) {
 			throw error(e.status, e.message);
 		} else {
-			console.log({ message: e.message, stack: e.stack });
+			console.log({ status: e.status, message: e.message || e.body.message, stack: e.stack || '-', raw: e });
 			throw error(500, 'A server error occurred');
 		}
 	} catch (e: any) {
-		console.log('Error handling error: ', { message: e.message, stack: e.stack, raw: e });
-		throw error(500, 'An internal error occurred');
+		console.log('Error handling error: ', { status: e.status, message: e.message || e.body.message, stack: e.stack || '-', raw: e });
+		throw error(e.status || 500, e.body.message || 'An internal error occurred');
 	}
 }
 
