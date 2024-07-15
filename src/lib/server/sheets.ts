@@ -26,7 +26,7 @@ export async function getSheet(locals: App.Locals, id: string) {
 	return sheet;
 }
 
-export async function saveSheet(locals: App.Locals, sheet: Sheet) {
+export async function saveSheet(locals: App.Locals, sheet: Sheet): Promise<Sheet | any> {
 	try {
 		const newSheet = {
 			...sheet,
@@ -36,7 +36,7 @@ export async function saveSheet(locals: App.Locals, sheet: Sheet) {
 		// Adding the Authorization header to the request manually works, but shouldn't it be added automatically by the pb client?
 		const record: Sheet = await pb.collection('sheets').create(newSheet, { headers: { 'Authorization': `Bearer ${locals.pb.authStore.token}` } });
 		return record;
-	} catch (e) {
+	} catch (e: any) {
 		console.error(e);
 		return e;
 	}

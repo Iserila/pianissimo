@@ -6,6 +6,7 @@
 	import type { User } from '$lib/types/global.interface';
 	import { Box, Check, ChevronsUpDown, FileImage, FileText } from 'lucide-svelte';
 	import { tick } from 'svelte';
+	import { toast } from 'svelte-sonner';
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
 	import { Switch } from '$lib/components/ui/switch';
@@ -14,13 +15,24 @@
 	import * as Popover from '$lib/components/ui/popover';
 	import { buttonVariants } from '$lib/components/ui/button';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
+	import { goto } from '$app/navigation';
 
 	export let data: { user: User; form: SuperValidated<Infer<ZodSheet>> };
 
 	const form = superForm(data.form, {
 		taintedMessage:
 			'You have unsaved changes. Are you sure you want to leave this page?\n\n(。_。)',
-		validators: zodClient(SheetSchema)
+		validators: zodClient(SheetSchema),
+		async onResult({ result }) {
+			// This actively hurts my soul
+			if (result.type === 'success' && result.data?.form?.data) {
+				const { title } = result.data.form.data;
+				toast.success(`Sheet '${title}' has been created.`);
+				await goto(`/app/sheets`);
+			} else {
+				toast.error('Something went wrong. Please try again later.');
+			}
+		}
 	});
 	const { form: formData, enhance } = form;
 
@@ -34,9 +46,10 @@
 </script>
 
 <h1 class="text-4xl font-bold">New Sheet</h1>
+<button on:click={() => toast.error('Hello world')}>Show toast</button>
 
 <form method="POST" use:enhance enctype="multipart/form-data" class="mt-8 max-w-4xl space-y-8">
-	<div class="grid md:grid-cols-2 space-y-4 md:space-y-0">
+	<div class="grid space-y-4 md:grid-cols-2 md:space-y-0">
 		<div>
 			<h2 class="flex items-center text-xl font-bold">
 				<FileText class="mr-1 h-5 object-contain" />
@@ -139,7 +152,7 @@
 	<Separator />
 
 	<!-- Media -->
-	<div class="grid md:grid-cols-2 space-y-4 md:space-y-0">
+	<div class="grid space-y-4 md:grid-cols-2 md:space-y-0">
 		<div>
 			<h2 class="flex items-center text-xl font-bold">
 				<FileImage class="mr-1 h-5 object-contain" />
@@ -197,7 +210,7 @@
 	<Separator />
 
 	<!-- Misc -->
-	<div class="grid md:grid-cols-2 space-y-4 md:space-y-0">
+	<div class="grid space-y-4 md:grid-cols-2 md:space-y-0">
 		<div>
 			<h2 class="flex items-center text-xl font-bold">
 				<Box class="mr-1 h-5 object-contain" />
@@ -218,7 +231,9 @@
 						/>
 					</div>
 				</Form.Control>
-				<Form.Description>Whether the sheet should be visible to others. Preferably yes.</Form.Description>
+				<Form.Description
+					>Whether the sheet should be visible to others. Preferably yes.</Form.Description
+				>
 				<Form.FieldErrors />
 			</Form.Field>
 			<Form.Field {form} name="note">
@@ -230,7 +245,9 @@
 						class="focus:border-2 focus:border-accent-foreground"
 					/>
 				</Form.Control>
-				<Form.Description>Any additional notes. E.g. partly annotated or iffy quality.</Form.Description>
+				<Form.Description
+					>Any additional notes. E.g. partly annotated or iffy quality.</Form.Description
+				>
 				<Form.FieldErrors />
 			</Form.Field>
 		</div>
