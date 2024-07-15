@@ -19,7 +19,8 @@ export async function getSheets(locals: any): Promise<Record<Genre, Sheet[]>> {
 
 export async function getSheet(locals: App.Locals, id: string) {
 	const sheet = await pb.collection('sheets').getOne(id, {
-		expand: 'artist,publishedBy'
+		expand: 'artist,publishedBy',
+		headers: { 'Authorization': `Bearer ${locals.pb.authStore.token}` }
 	});
 
 	return sheet;
