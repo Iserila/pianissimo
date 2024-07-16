@@ -46,7 +46,6 @@
 </script>
 
 <h1 class="text-4xl font-bold">New Sheet</h1>
-<button on:click={() => toast.error('Hello world')}>Show toast</button>
 
 <form method="POST" use:enhance enctype="multipart/form-data" class="mt-8 max-w-4xl space-y-8">
 	<div class="grid space-y-4 md:grid-cols-2 md:space-y-0">
@@ -57,11 +56,12 @@
 			</h2>
 			<p class="text-sm text-muted-foreground">Fill in the details of the sheet.</p>
 		</div>
-		<div>
+		<div class="space-y-6">
 			<Form.Field {form} name="title">
 				<Form.Control let:attrs>
 					<Form.Label>Title</Form.Label>
 					<Input
+						placeholder="E.g. Cornfield Chase"
 						class="focus:border-2 focus:border-accent-foreground"
 						{...attrs}
 						bind:value={$formData.title}
@@ -77,9 +77,10 @@
 						class="focus:border-2 focus:border-accent-foreground"
 						{...attrs}
 						bind:value={$formData.source}
+						placeholder="E.g. Interstellar"
 					/>
 				</Form.Control>
-				<Form.Description>The source. E.g. the name of a movie, game, etc.</Form.Description>
+				<Form.Description>Where the song is used when applicable. Leave empty if not.</Form.Description>
 				<Form.FieldErrors />
 			</Form.Field>
 			<Form.Field {form} name="genre" class="flex flex-col">
@@ -128,12 +129,11 @@
 						</Command.Root>
 					</Popover.Content>
 				</Popover.Root>
-				<Form.Description>The genre of the song.</Form.Description>
 				<Form.FieldErrors />
 			</Form.Field>
 			<Form.Field {form} name="duo">
 				<Form.Control let:attrs>
-					<Form.Label>Duo</Form.Label>
+					<Form.Label>For two people?</Form.Label>
 					<div>
 						<Switch
 							class="focus:border-2 focus:border-accent-foreground"
@@ -143,7 +143,6 @@
 						/>
 					</div>
 				</Form.Control>
-				<Form.Description>Whether the song is meant to be played by two people.</Form.Description>
 				<Form.FieldErrors />
 			</Form.Field>
 		</div>
@@ -160,7 +159,7 @@
 			</h2>
 			<p class="text-sm text-muted-foreground">Upload the media related to the song.</p>
 		</div>
-		<div>
+		<div class="space-y-6">
 			<Form.Field {form} name="image">
 				<Form.Control let:attrs>
 					<Form.Label>Image</Form.Label>
@@ -218,7 +217,7 @@
 			</h2>
 			<p class="text-sm text-muted-foreground">Other information about the sheet.</p>
 		</div>
-		<div>
+		<div class="space-y-6">
 			<Form.Field {form} name="published">
 				<Form.Control let:attrs>
 					<Form.Label>Publish</Form.Label>
@@ -243,10 +242,11 @@
 						{...attrs}
 						bind:value={$formData.note}
 						class="focus:border-2 focus:border-accent-foreground"
+						placeholder="E.g. partly annotated or iffy quality."
 					/>
 				</Form.Control>
 				<Form.Description
-					>Any additional notes. E.g. partly annotated or iffy quality.</Form.Description
+					>Any additional notes.</Form.Description
 				>
 				<Form.FieldErrors />
 			</Form.Field>
